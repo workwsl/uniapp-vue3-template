@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { nextTick, onShow, ref } from 'vue'
+import { onShow } from '@dcloudio/uni-app'
+import { nextTick, ref } from 'vue'
 import FgTabbar from '@/tabbar/index.vue'
 import { initTabbarList, isPageTabbar, updateTabbarList } from './tabbar/store'
-import { currRoute, getHomePage } from './utils'
+import { currRoute } from './utils'
 
 // 当前页面是否是 tabbar 页面
 const isCurrentPageTabbar = ref(true)
