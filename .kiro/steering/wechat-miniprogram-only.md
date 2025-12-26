@@ -1,0 +1,62 @@
+---
+inclusion: always
+---
+# 微信小程序平台限制
+
+## 重要说明
+
+**整个项目只需要考虑微信小程序即可。**
+
+## 平台限制规则
+
+- 所有代码实现和功能开发都应该以微信小程序平台为唯一目标平台
+- 不需要考虑其他平台（如 H5、APP、支付宝小程序等）的兼容性
+- **不需要进行平台判断**：代码直接针对微信小程序编写，无需使用 `isMpWeixin` 等平台检测
+- **不需要条件编译指令**：不使用 `#ifdef`、`#endif` 等条件编译指令
+- 代码应该直接使用微信小程序的 API 和特性，无需任何平台相关的判断或条件编译
+
+## 代码示例
+
+```typescript
+// ✅ 正确：直接使用微信小程序 API，无需平台判断
+uni.showToast({
+  title: '操作成功',
+  icon: 'success'
+})
+
+// ❌ 错误：不要使用平台判断
+import { isMpWeixin } from '@uni-helper/uni-env'
+if (isMpWeixin) {
+  uni.showToast({ title: '操作成功' })
+}
+```
+
+```vue
+<!-- ✅ 正确：直接编写微信小程序代码，无需条件编译 -->
+<template>
+  <view class="page">
+    <button @click="handleClick">点击</button>
+  </view>
+</template>
+
+<!-- ❌ 错误：不要使用条件编译 -->
+<!-- #ifdef MP-WEIXIN -->
+<view>内容</view>
+<!-- #endif -->
+```
+
+## 开发命令
+
+- `pnpm dev:mp` - 开发微信小程序
+- `pnpm build:mp` - 构建微信小程序生产版本
+
+## 注意事项
+
+- 所有 API 调用都应该基于微信小程序的 API 规范
+- 不需要考虑跨平台兼容性
+- 可以充分利用微信小程序的特有功能和 API
+- 代码应该简洁直接，无需任何平台相关的判断或条件编译
+---
+description: 项目仅支持微信小程序平台，所有开发都应专注于微信小程序，无需平台判断和条件编译
+globs: **/*.{vue,ts,js}
+---

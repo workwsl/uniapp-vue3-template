@@ -1,0 +1,33 @@
+---
+inclusion: always
+---
+# unibest 项目概览
+
+这是一个基于 uniapp + Vue3 + TypeScript + Vite5 + UnoCSS 的微信小程序开发框架。
+
+## 项目特点
+- **仅支持微信小程序平台**（详见 [wechat-miniprogram-only.mdc](mdc:.cursor/rules/wechat-miniprogram-only.mdc)）
+- 使用最新的前端技术栈
+- 内置约定式路由、layout布局、请求封装、登录拦截、自定义tabbar等功能
+- 无需依赖 HBuilderX，支持命令行开发
+
+## 核心配置文件
+- [package.json](mdc:package.json) - 项目依赖和脚本配置
+- [vite.config.ts](mdc:vite.config.ts) - Vite 构建配置
+- [pages.config.ts](mdc:pages.config.ts) - 页面路由配置
+- [manifest.config.ts](mdc:manifest.config.ts) - 应用清单配置
+- [uno.config.ts](mdc:uno.config.ts) - UnoCSS 配置
+
+## 主要目录结构
+- `src/pages/` - 页面文件
+- `src/components/` - 组件文件
+- `src/layouts/` - 布局文件
+- `src/api/` - API 接口
+- `src/http/` - HTTP 请求封装
+- `src/store/` - 状态管理
+- `src/tabbar/` - 底部导航栏
+- `src/App.ku.vue` - 全局根组件（类似 App.vue 里面的 template作用）
+
+## 开发命令
+- `pnpm dev:mp` - 开发微信小程序
+- `pnpm build:mp` - 构建微信小程序生产版本
